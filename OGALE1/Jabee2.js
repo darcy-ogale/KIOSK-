@@ -32,13 +32,18 @@ function goToMenu() {
 // When the Order Now button is clicked, open the food menu.
 orderNowBtn.addEventListener("click", goToMenu); 
  
-// When the menu is scrolled to the bottom, show a message in the console.
+// When the menu is scrolled to the bottom, show a message on screen (and log it too).
+const scrollMessage = document.getElementById("scrollMessage");
+
 screenMenu.addEventListener("scroll", function () { 
     const scrolledToBottom = 
         screenMenu.scrollTop + screenMenu.clientHeight >= screenMenu.scrollHeight - 5; 
  
     if (scrolledToBottom) { 
-        console.log("You've reached the last food item!"); 
+        console.log("No other foods"); 
+        scrollMessage.classList.add("show");
+    } else {
+        scrollMessage.classList.remove("show");
     } 
 }); 
  
